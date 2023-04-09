@@ -6,19 +6,22 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Store } from './pages/Store';
 import { Navbar } from './components/Navbar';
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Container className='mb-4'>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </Container>
+    <ShoppingCartProvider>
+      <Container className='mb-4'>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Container>
+    </ShoppingCartProvider>
   )
 }
 
